@@ -19,7 +19,7 @@ import com.sistema.core.model.pessoa.PessoaDTO;
 import com.sistema.core.service.PessoaService;
 
 @RestController
-@RequestMapping("/entidade")
+@RequestMapping("/pessoa")
 public class PessoaController {
 
 	@Autowired

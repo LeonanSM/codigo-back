@@ -1,7 +1,6 @@
 package com.sistema.core.mapper;
 
 import org.mapstruct.Mapper;
-
 import com.sistema.core.model.pessoa.Pessoa;
 import com.sistema.core.model.pessoa.PessoaDTO;
 
