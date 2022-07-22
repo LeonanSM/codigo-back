@@ -10,15 +10,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.sistema.core.model.ordemservico.OrdemServicoItem;
+import com.sistema.core.model.ordemservicoitem.OrdemServicoItem;
 
 @Entity
 public class Servico {
 
 	@Id
-	@GeneratedValue(strategy =GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@Column(name = "nomeservico")
 	private String nomeServico;
 
 	private BigDecimal preco = BigDecimal.ZERO;
@@ -27,28 +28,24 @@ public class Servico {
 
 	private String unidade;
 
-	private BigDecimal desconto;
+	private String observacoes;
 
-	@Column(name = "percentualdesconto")
-	private Double percentualDesconto;
-	
 	@OneToMany(mappedBy = "servico")
 	private List<OrdemServicoItem> ordemServicoItem;
 
 	public Servico() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Servico(long id, String nomeServico, BigDecimal preco, Integer quantidade, String unidade,
-			BigDecimal desconto, Double percentualDesconto) {
+			String observacoes) {
 		super();
 		this.id = id;
 		this.nomeServico = nomeServico;
 		this.preco = preco;
 		this.quantidade = quantidade;
 		this.unidade = unidade;
-		this.desconto = desconto;
-		this.percentualDesconto = percentualDesconto;
+		this.observacoes = observacoes;
 	}
 
 	public long getId() {
@@ -72,7 +69,7 @@ public class Servico {
 	}
 
 	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
+		this.preco = preco ;
 	}
 
 	public Integer getQuantidade() {
@@ -91,22 +88,20 @@ public class Servico {
 		this.unidade = unidade;
 	}
 
-	public BigDecimal getDesconto() {
-		return desconto;
+	public String getObservacoes() {
+		return observacoes;
 	}
 
-	public void setDesconto(BigDecimal desconto) {
-		this.desconto = desconto;
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 
-	public Double getPercentualDesconto() {
-		return percentualDesconto;
+	public List<OrdemServicoItem> getOrdemServicoItem() {
+		return ordemServicoItem;
 	}
 
-	public void setPercentualDesconto(Double percentualDesconto) {
-		this.percentualDesconto = percentualDesconto;
+	public void setOrdemServicoItem(List<OrdemServicoItem> ordemServicoItem) {
+		this.ordemServicoItem = ordemServicoItem;
 	}
 
-	
-	
 }

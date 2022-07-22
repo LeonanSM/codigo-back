@@ -1,11 +1,8 @@
 package com.sistema.core.model.servico;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.validation.constraints.NotBlank;
-
-import com.sistema.core.model.ordemservico.OrdemServicoItem;
 
 public class ServicoDTO {
 
@@ -14,19 +11,15 @@ public class ServicoDTO {
 	@NotBlank
 	private String nomeServico;
 
+	
 	private BigDecimal preco = BigDecimal.ZERO;
 
 	private Integer quantidade;
 
 	private String unidade;
 
-	private BigDecimal desconto;
 
-	
-	private Double percentualDesconto;
-	
-	
-	private List<OrdemServicoItem> ordemServicoItem;
+	private String observacoes;
 
 	
 	public long getId() {
@@ -79,33 +72,14 @@ public class ServicoDTO {
 	}
 
 
-	public BigDecimal getDesconto() {
-		return desconto;
+
+	public String getObservacoes() {
+		return observacoes;
 	}
 
 
-	public void setDesconto(BigDecimal desconto) {
-		this.desconto = desconto;
-	}
-
-
-	public Double getPercentualDesconto() {
-		return percentualDesconto;
-	}
-
-
-	public void setPercentualDesconto(Double percentualDesconto) {
-		this.percentualDesconto = percentualDesconto;
-	}
-
-
-	public List<OrdemServicoItem> getOrdemServicoItem() {
-		return ordemServicoItem;
-	}
-
-
-	public void setOrdemServicoItem(List<OrdemServicoItem> ordemServicoItem) {
-		this.ordemServicoItem = ordemServicoItem;
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 	
 	

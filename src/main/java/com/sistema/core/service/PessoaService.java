@@ -20,8 +20,10 @@ public class PessoaService {
 	@Autowired
 	private PessoaDTOMapper mapper;
 
-	public List<Pessoa> listar() {
-		return repository.findAll();
+	public List<PessoaDTO> listar() {
+		
+		return mapper.toDTO(repository.findAll()) ;
+		
 	}
 
 	public Pessoa buscar(Long id) {

@@ -14,36 +14,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sistema.core.model.pessoa.Pessoa;
-import com.sistema.core.model.pessoa.PessoaDTO;
-import com.sistema.core.service.PessoaService;
+import com.sistema.core.model.ordemservico.OrdemServico;
+import com.sistema.core.model.ordemservico.OrdemServicoDTO;
+import com.sistema.core.service.OrdemServicoService;
 
 @RestController
-@RequestMapping("/pessoa")
-public class PessoaController {
+@RequestMapping("/ordemservico")
+public class OrdemServicoController {
 
 	@Autowired
-	private PessoaService service;
+	private OrdemServicoService service;
 
 	@GetMapping("/listar")
-	public List<PessoaDTO> listar() {
+	public List<OrdemServicoDTO> listar() {
 
 		return service.listar();
 	}
 
 	@GetMapping("/buscar")
-	public Pessoa buscar(@RequestParam Long id) {
+	public OrdemServico buscar(@RequestParam Long id) {
 		return service.buscar(id);
 	}
 
 	@PostMapping("/criar")
-	public Pessoa criar(@Valid @RequestBody PessoaDTO dto) {
+	public OrdemServico criar(@Valid @RequestBody OrdemServicoDTO dto) {
 
 		return service.criar(dto);
 	}
 
 	@PutMapping("/alterar")
-	public Pessoa alterar(@Valid @RequestBody PessoaDTO dto) {
+	public OrdemServico alterar(@Valid @RequestBody OrdemServicoDTO dto) {
 
 		return service.alterar(dto);
 	}

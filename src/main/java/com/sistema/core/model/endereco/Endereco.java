@@ -18,20 +18,6 @@ public class Endereco {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Endereco(String cep, String endereco, String numero, String complemento, String bairro, Long idCidade,
-			Long idEstado, Long idPais) {
-		super();
-
-		this.logradouro = endereco;
-		this.numero = numero;
-		this.complemento = complemento;
-		this.bairro = bairro;
-		this.cep = cep;
-		this.idCidade = idCidade;
-		this.idEstado = idEstado;
-		this.idPais = idPais;
-	}
-
 	public String getCep() {
 		return cep;
 	}

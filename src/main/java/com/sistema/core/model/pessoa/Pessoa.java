@@ -23,33 +23,34 @@ public class Pessoa {
 	@Column(nullable = false, length = 60)
 	private String nome;
 
-	@Column(name= "razaosocial",nullable = false, length = 60)
+	@Column(name = "razaosocial", nullable = false, length = 60)
 	private String razaoSocial;
 
-	@Column(name= "cpfcnpj",nullable = false, length = 14)
+	@Column(name = "cpfcnpj", nullable = false, length = 14)
 	private String cpfCnpj;
 
-	@Column(name= "tipopessoa", nullable = false)
+	@Column(name = "tipopessoa", nullable = false)
 	private String tipoPessoa;
 
 	private LocalDate nascimento;
 
-	@Column(name= "contatotelefone")
+	@Column(name = "contatotelefone")
 	private String contatoTelefone;
 
-	@Column(name= "contatocelular")
+	@Column(name = "contatocelular")
 	private String contatoCelular;
 
 	private String email;
-	
+
 	private Endereco endereco = new Endereco();
-	
+
 	@OneToMany(mappedBy = "pessoa")
 	private List<OrdemServico> ordemServico;
 
 	public Pessoa() {
 
 	}
+
 
 	public Long getId() {
 		return id;
@@ -131,9 +132,9 @@ public class Pessoa {
 		this.endereco = endereco;
 	}
 
-	public void setEndereco(String logradouro) {
-		
-		setEndereco(logradouro);
+	public void setEndereco(String endereco) {
+
+		setEndereco(endereco);
 	}
 
 }
