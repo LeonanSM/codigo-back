@@ -1,4 +1,4 @@
-package com.sistema.core.controller;
+package com.sistema.core.model.ordemservico;
 
 import java.util.List;
 
@@ -14,36 +14,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sistema.core.model.pessoa.Pessoa;
-import com.sistema.core.model.pessoa.PessoaDTO;
-import com.sistema.core.service.PessoaService;
+import com.sistema.core.model.ordemservico.dto.OrdemServicoChangeDTO;
+import com.sistema.core.model.ordemservico.dto.OrdemServicoCreateDTO;
+import com.sistema.core.model.ordemservico.dto.OrdemServicoListDTO;
+import com.sistema.core.model.ordemservico.dto.OrdemServicoShowDTO;
 
 @RestController
-@RequestMapping("/pessoa")
-public class PessoaController {
+@RequestMapping("/ordemservico")
+public class OrdemServicoController {
 
 	@Autowired
-	private PessoaService service;
+	private OrdemServicoService service;
 
 	@GetMapping("/listar")
-	public List<PessoaDTO> listar() {
+	public List<OrdemServicoListDTO> listar() {
 
 		return service.listar();
 	}
 
 	@GetMapping("/buscar")
-	public Pessoa buscar(@RequestParam Long id) {
-		return service.buscar(id);
+	public OrdemServicoShowDTO buscar(@RequestParam Long id) {
+		return service.buscarPorId(id);
 	}
 
 	@PostMapping("/criar")
-	public Pessoa criar(@Valid @RequestBody PessoaDTO dto) {
+	public OrdemServicoShowDTO criar(@Valid @RequestBody OrdemServicoCreateDTO dto) {
 
 		return service.criar(dto);
 	}
 
 	@PutMapping("/alterar")
-	public Pessoa alterar(@Valid @RequestBody PessoaDTO dto) {
+	public OrdemServicoShowDTO alterar(@Valid @RequestBody OrdemServicoChangeDTO dto) {
 
 		return service.alterar(dto);
 	}

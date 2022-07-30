@@ -1,4 +1,4 @@
-package com.sistema.core.model.pessoa;
+package com.sistema.core.model.pessoa.dto;
 
 import java.time.LocalDate;
 
@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.sistema.core.model.endereco.Endereco;
 
-public class PessoaDTO {
+public class PessoaCreateDTO {
 
 	private Long id;
 	
@@ -108,5 +108,5 @@ public class PessoaDTO {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-
+	
 }

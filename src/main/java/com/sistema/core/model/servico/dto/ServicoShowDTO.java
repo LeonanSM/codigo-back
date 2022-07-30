@@ -1,10 +1,10 @@
-package com.sistema.core.model.servico;
+package com.sistema.core.model.servico.dto;
 
 import java.math.BigDecimal;
 
 import javax.validation.constraints.NotBlank;
 
-public class ServicoDTO {
+public class ServicoShowDTO {
 
 	private long id;
 

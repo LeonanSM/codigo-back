@@ -1,4 +1,4 @@
-package com.sistema.core.controller;
+package com.sistema.core.model.pessoa;
 
 import java.util.List;
 
@@ -14,36 +14,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sistema.core.model.servico.Servico;
-import com.sistema.core.model.servico.ServicoDTO;
-import com.sistema.core.service.ServicoService;
+import com.sistema.core.model.pessoa.dto.PessoaChangeDTO;
+import com.sistema.core.model.pessoa.dto.PessoaCreateDTO;
+import com.sistema.core.model.pessoa.dto.PessoaListDTO;
+import com.sistema.core.model.pessoa.dto.PessoaShowDTO;
 
 @RestController
-@RequestMapping("/servico")
-public class ServicoController {
+@RequestMapping("/pessoa")
+public class PessoaController {
 
 	@Autowired
-	private ServicoService service;
+	private PessoaService service;
 
 	@GetMapping("/listar")
-	public List<ServicoDTO> listar() {
+	public List<PessoaListDTO> listar() {
 
 		return service.listar();
 	}
 
 	@GetMapping("/buscar")
-	public Servico buscar(@RequestParam Long id) {
-		return service.buscar(id);
+	public PessoaShowDTO buscar(@RequestParam Long id) {
+		return service.buscarPorId(id);
+	}
+
+	@GetMapping("/pesquisanome")
+	public List<Pessoa> buscar(@RequestParam String nome) {
+		return service.pesquisarPorNome(nome);
 	}
 
 	@PostMapping("/criar")
-	public Servico criar(@RequestBody ServicoDTO dto) {
+	public PessoaShowDTO criar(@Valid @RequestBody PessoaCreateDTO dto) {
 
 		return service.criar(dto);
 	}
 
 	@PutMapping("/alterar")
-	public Servico alterar(@Valid @RequestBody ServicoDTO dto) {
+	public Pessoa alterar(@Valid @RequestBody PessoaChangeDTO dto) {
 
 		return service.alterar(dto);
 	}
@@ -53,5 +59,4 @@ public class ServicoController {
 
 		service.excluir(id);
 	}
-
 }

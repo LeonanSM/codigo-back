@@ -1,17 +1,17 @@
-package com.sistema.core.model.ordemservico;
+package com.sistema.core.model.ordemservico.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sistema.core.model.ordemservico.StatusOrdem;
 import com.sistema.core.model.ordemservicoitem.OrdemServicoItem;
 import com.sistema.core.model.pessoa.Pessoa;
 
-public class OrdemServicoDTO {
+public class OrdemServicoCreateDTO {
 
-	private Long id;
-
+	
 	private String descricaoServico;
 
 	private BigDecimal valorBruto;
@@ -33,14 +33,6 @@ public class OrdemServicoDTO {
 	private Pessoa pessoa;
 
 	private List<OrdemServicoItem> ordemServicoItem = new ArrayList<OrdemServicoItem>();
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getDescricaoServico() {
 		return descricaoServico;
@@ -130,5 +122,6 @@ public class OrdemServicoDTO {
 		this.ordemServicoItem = ordemServicoItem;
 	}
 
-	
+
+
 }
