@@ -59,4 +59,51 @@ public class PessoaController {
 
 		service.excluir(id);
 	}
+
+	@GetMapping("/safada")
+	public String safada(SafadaDTO dto) {
+
+		return dto.getNome();
+	}
+
+}
+
+class SafadaDTO {
+	private String nome;
+	private int busto;
+	private int cintura;
+	private int nivelBeleza;
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getBusto() {
+		return busto;
+	}
+
+	public void setBusto(int busto) {
+		this.busto = busto;
+	}
+
+	public int getCintura() {
+		return cintura;
+	}
+
+	public void setCintura(int cintura) {
+		this.cintura = cintura;
+	}
+
+	public int getNivelBeleza() {
+		return nivelBeleza;
+	}
+
+	public void setNivelBeleza(int nivelBeleza) {
+		this.nivelBeleza = nivelBeleza;
+	}
+
 }
