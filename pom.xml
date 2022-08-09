@@ -101,6 +101,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<name>core</name>
 </project>
