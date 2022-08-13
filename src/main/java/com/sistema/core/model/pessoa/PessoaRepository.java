@@ -24,5 +24,5 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 	@Query(value = "select nome,email,cpfcnpj as documento from pessoa p where nome=:nome", nativeQuery = true)
 	List<PessoaProjecaoDTO> pesquisaPorNomeProjecao(String nome);
 
-	
+	//https://www.baeldung.com/spring-data-derived-queries
 }
