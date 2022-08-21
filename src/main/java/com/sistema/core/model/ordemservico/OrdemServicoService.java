@@ -21,60 +21,60 @@ import com.sistema.core.model.ordemservico.mapper.OrdemServicoDTOShowMapper;
 @Transactional
 public class OrdemServicoService {
 
-	@Autowired
-	private OrdemServicoRepository repository;
+    @Autowired
+    private OrdemServicoRepository repository;
 
-	@Autowired
-	private OrdemServicoDTOListMapper dtoListMapper;
+    @Autowired
+    private OrdemServicoDTOListMapper dtoListMapper;
 
-	@Autowired
-	private OrdemServicoDTOShowMapper dtoShowMapper;
+    @Autowired
+    private OrdemServicoDTOShowMapper dtoShowMapper;
 
-	@Autowired
-	private OrdemServicoDTOCreateMapper dtoCreateMapper;
+    @Autowired
+    private OrdemServicoDTOCreateMapper dtoCreateMapper;
 
-	@Autowired
-	private OrdemServicoDTOChangeMapper dtoChangeMapper;
+    @Autowired
+    private OrdemServicoDTOChangeMapper dtoChangeMapper;
 
-	public List<OrdemServicoListDTO> listar() {
+    public List<OrdemServicoListDTO> listar() {
 
-		return dtoListMapper.toDTO(repository.findAll());
+        return dtoListMapper.toDTO(repository.findAll());
 
-	}
+    }
 
-	public OrdemServicoShowDTO buscarPorId(Long id) {
+    public OrdemServicoShowDTO buscarPorId(Long id) {
 
-		Optional<OrdemServico> optional = repository.findById(id);
+        Optional<OrdemServico> optional = repository.findById(id);
 
-		if (!optional.isPresent()) {
-			throw new RuntimeException("Ordem serviço inexistente!");
-		}
-		return dtoShowMapper.toDTO(optional.get());
-	}
+        if (!optional.isPresent()) {
+            throw new RuntimeException("Ordem serviço inexistente!");
+        }
+        return dtoShowMapper.toDTO(optional.get());
+    }
 
-	public OrdemServicoShowDTO criar(OrdemServicoCreateDTO dto) {
+    public OrdemServicoShowDTO criar(OrdemServicoCreateDTO dto) {
 
-		OrdemServico ordemServico = dtoCreateMapper.toEntity(dto);
-		ordemServico = repository.save(ordemServico);
+        OrdemServico ordemServico = dtoCreateMapper.toEntity(dto);
+        ordemServico = repository.save(ordemServico);
 
-		return dtoShowMapper.toDTO(ordemServico);
+        return dtoShowMapper.toDTO(ordemServico);
 
-	}
+    }
 
-	public OrdemServicoShowDTO alterar(OrdemServicoChangeDTO dto) {
+    public OrdemServicoShowDTO alterar(OrdemServicoChangeDTO dto) {
 
-		OrdemServico ordemServico = dtoChangeMapper.toEntity(dto);
+        OrdemServico ordemServico = dtoChangeMapper.toEntity(dto);
 
-		ordemServico = repository.save(ordemServico);
+        ordemServico = repository.save(ordemServico);
 
-		return dtoShowMapper.toDTO(ordemServico);
-	}
+        return dtoShowMapper.toDTO(ordemServico);
+    }
 
-	public String excluir(Long id) {
-		String excluido = "Pessoa excluido";
-		repository.deleteById(id);
+    public String excluir(Long id) {
+        String excluido = "Pessoa excluido";
+        repository.deleteById(id);
 
-		return excluido;
-	}
+        return excluido;
+    }
 
 }

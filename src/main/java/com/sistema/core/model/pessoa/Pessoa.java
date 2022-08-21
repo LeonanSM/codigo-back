@@ -13,6 +13,10 @@ import javax.persistence.OneToMany;
 import com.sistema.core.model.endereco.Endereco;
 import com.sistema.core.model.ordemservico.OrdemServico;
 
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 @Entity
 public class Pessoa {
 
@@ -47,94 +51,5 @@ public class Pessoa {
 	@OneToMany(mappedBy = "pessoa")
 	private List<OrdemServico> ordemServico;
 
-	public Pessoa() {
-
-	}
-
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getRazaoSocial() {
-		return razaoSocial;
-	}
-
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
-	}
-
-	public String getCpfCnpj() {
-		return cpfCnpj;
-	}
-
-	public void setCpfCnpj(String cpfCnpj) {
-		this.cpfCnpj = cpfCnpj;
-	}
-
-	public String getTipoPessoa() {
-		return tipoPessoa;
-	}
-
-	public void setTipoPessoa(String tipoPessoa) {
-		this.tipoPessoa = tipoPessoa;
-	}
-
-	public LocalDate getNascimento() {
-		return nascimento;
-	}
-
-	public void setNascimento(LocalDate nascimento) {
-		this.nascimento = nascimento;
-	}
-
-	public String getContatoTelefone() {
-		return contatoTelefone;
-	}
-
-	public void setContatoTelefone(String contatoTelefone) {
-		this.contatoTelefone = contatoTelefone;
-	}
-
-	public String getContatoCelular() {
-		return contatoCelular;
-	}
-
-	public void setContatoCelular(String contatoCelular) {
-		this.contatoCelular = contatoCelular;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public void setEndereco(String endereco) {
-
-		setEndereco(endereco);
-	}
 
 }

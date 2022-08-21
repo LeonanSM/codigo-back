@@ -1,19 +1,14 @@
 package com.sistema.core.model.ordemservico.mapper;
 
-import java.util.List;
-
 import org.mapstruct.Mapper;
 
+import com.sistema.core.model.abstractions.BaseMapper;
 import com.sistema.core.model.ordemservico.OrdemServico;
 import com.sistema.core.model.ordemservico.dto.OrdemServicoCreateDTO;
+import com.sistema.core.model.ordemservicoitem.mapper.OrdemServicoItemCreateDTOMapper;
+import com.sistema.core.model.pessoa.mapper.PessoaCreateDTOMapper;
 
-@Mapper(componentModel = "spring")
-public interface OrdemServicoDTOCreateMapper {
-
-	OrdemServico toEntity(OrdemServicoCreateDTO dto);
-	OrdemServicoCreateDTO toDTO(OrdemServico entity);
-	
-	List<OrdemServico> toEntity(List<OrdemServicoCreateDTO> dto);
-	List<OrdemServicoCreateDTO> toDTO(List<OrdemServico> entity);
+@Mapper(componentModel = "spring",uses= {OrdemServicoItemCreateDTOMapper.class, PessoaCreateDTOMapper.class})
+public interface OrdemServicoDTOCreateMapper extends BaseMapper<OrdemServico, OrdemServicoCreateDTO> {
 
 }
