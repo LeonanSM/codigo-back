@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.sistema.core.model.pessoa.dto.PessoaProjecaoDTO;
+import com.sistema.core.model.pessoa.dto.PessoaDTOList;
 
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
@@ -22,7 +22,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 	List<Pessoa> findByNomeContaining(String nome);
 
 	@Query(value = "select nome,email,cpfcnpj as documento from pessoa p where nome=:nome", nativeQuery = true)
-	List<PessoaProjecaoDTO> pesquisaPorNomeProjecao(String nome);
+	List<PessoaDTOList> pesquisaPorNomeProjecao(String nome);
 
 	//https://www.baeldung.com/spring-data-derived-queries
 }

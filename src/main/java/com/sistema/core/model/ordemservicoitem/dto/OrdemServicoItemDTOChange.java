@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import com.sistema.core.model.ordemservico.OrdemServico;
 import com.sistema.core.model.servico.Servico;
 
-public class OrdemServicoItemChangeDTO {
+public class OrdemServicoItemDTOChange {
 
 	private long id;
 

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 import com.sistema.core.model.ordemservico.StatusOrdem;
 
-public class OrdemServicoListDTO {
+public class OrdemServicoDTOShow {
 
 	private Long id;
 
@@ -107,7 +107,6 @@ public class OrdemServicoListDTO {
 		this.fim = fim;
 	}
 
-	
-	
-	
+
+
 }

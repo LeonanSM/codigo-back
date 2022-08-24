@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sistema.core.model.pessoa.dto.PessoaChangeDTO;
-import com.sistema.core.model.pessoa.dto.PessoaCreateDTO;
-import com.sistema.core.model.pessoa.dto.PessoaListDTO;
-import com.sistema.core.model.pessoa.dto.PessoaShowDTO;
+import com.sistema.core.model.pessoa.dto.PessoaDTOChange;
+import com.sistema.core.model.pessoa.dto.PessoaDTOCreate;
+import com.sistema.core.model.pessoa.dto.PessoaDTOList;
+import com.sistema.core.model.pessoa.dto.PessoaDTOShow;
 import com.sistema.core.model.pessoa.mapper.PessoaChangeDTOMapper;
 import com.sistema.core.model.pessoa.mapper.PessoaCreateDTOMapper;
 import com.sistema.core.model.pessoa.mapper.PessoaListDTOMapper;
@@ -35,20 +35,21 @@ public class PessoaService {
 	@Autowired
 	private PessoaChangeDTOMapper dtoChangeMapper;
 
-	public List<PessoaListDTO> listar() {
+	public List<PessoaDTOList> listar() {
 
-		return dtoListMapper.toDTO(repository.findAll());
+	    
+		return dtoListMapper.toDto(repository.findAll());
 
 	}
 
-	public PessoaShowDTO buscarPorId(Long id) {
+	public PessoaDTOShow buscarPorId(Long id) {
 
 		Optional<Pessoa> optional = repository.findById(id);
 
 		if (!optional.isPresent()) {
 			throw new RuntimeException("Pessoa não encontrada!");
 		}
-		return dtoShowMapper.toDTO(optional.get());
+		return dtoShowMapper.toDto(optional.get());
 	}
 
 	public List<Pessoa> pesquisarPorNome(String nome) {
@@ -58,14 +59,14 @@ public class PessoaService {
 		return list;
 	}
 
-	public PessoaShowDTO criar(PessoaCreateDTO dto) {
+	public PessoaDTOShow criar(PessoaDTOCreate dto) {
 		
 		Pessoa pessoa = dtoCreateMapper.toEntity(dto);
 		pessoa = repository.save(pessoa);
-		return dtoShowMapper.toDTO(pessoa);
+		return dtoShowMapper.toDto(pessoa);
 	}
 
-	public Pessoa alterar(PessoaChangeDTO dto) {
+	public Pessoa alterar(PessoaDTOChange dto) {
 
 		Pessoa entity = dtoChangeMapper.toEntity(dto);
 		Pessoa alterado = repository.save(entity);

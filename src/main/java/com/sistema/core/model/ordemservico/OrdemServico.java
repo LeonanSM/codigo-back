@@ -60,8 +60,8 @@ public class OrdemServico {
     @ManyToOne(fetch = FetchType.EAGER)
     private Pessoa pessoa;
 
-    @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.PERSIST)
-    private List<OrdemServicoItem> ordemServicoItem = new ArrayList<OrdemServicoItem>();
+   @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.PERSIST)
+   private List<OrdemServicoItem> ordemServicoItem = new ArrayList<OrdemServicoItem>();
 
 
 

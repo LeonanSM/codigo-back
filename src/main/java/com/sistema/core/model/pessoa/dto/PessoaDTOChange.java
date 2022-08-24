@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.sistema.core.model.endereco.Endereco;
 
-public class PessoaShowDTO {
+public class PessoaDTOChange {
 
 	private Long id;
 	
@@ -108,5 +108,5 @@ public class PessoaShowDTO {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
+
 }

@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sistema.core.model.servico.dto.ServicoChangeDTO;
-import com.sistema.core.model.servico.dto.ServicoCreateDTO;
-import com.sistema.core.model.servico.dto.ServicoListDTO;
-import com.sistema.core.model.servico.dto.ServicoShowDTO;
+import com.sistema.core.model.servico.dto.ServicoDTOChange;
+import com.sistema.core.model.servico.dto.ServicoDTOCreate;
+import com.sistema.core.model.servico.dto.ServicoDTOList;
+import com.sistema.core.model.servico.dto.ServicoDTOShow;
 import com.sistema.core.model.servico.mapper.ServicoChangeDTOMapper;
 import com.sistema.core.model.servico.mapper.ServicoCreateDTOMapper;
 import com.sistema.core.model.servico.mapper.ServicoListDTOMapper;
@@ -38,11 +38,11 @@ public class ServicoService {
 	
 	
 	
-	public List<ServicoListDTO> listar() {
+	public List<ServicoDTOList> listar() {
 		return dtoListmapper.toDTO(repository.findAll());
 	}
 
-	public ServicoShowDTO buscarPorId(Long id) {
+	public ServicoDTOShow buscarPorId(Long id) {
 
 		Optional<Servico> optional = repository.findById(id);
 		if (!optional.isPresent()) {
@@ -52,14 +52,14 @@ public class ServicoService {
 		return dtoShowmapper.toDTO(optional.get());
 	}
 	
-	public ServicoShowDTO criar(ServicoCreateDTO dto) {
+	public ServicoDTOShow criar(ServicoDTOCreate dto) {
 		
 		Servico servico = dtoCreatemapper.toEntity(dto);
 		servico= repository.save(servico);
 		return dtoShowmapper.toDTO(servico);
 	}
 	
-	public Servico alterar(ServicoChangeDTO dto) {
+	public Servico alterar(ServicoDTOChange dto) {
 		
 		Servico servico = dtoChangemapper.toEntity(dto);
 		Servico alterado = repository.save(servico);

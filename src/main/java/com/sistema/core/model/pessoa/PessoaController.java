@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sistema.core.model.pessoa.dto.PessoaChangeDTO;
-import com.sistema.core.model.pessoa.dto.PessoaCreateDTO;
-import com.sistema.core.model.pessoa.dto.PessoaListDTO;
-import com.sistema.core.model.pessoa.dto.PessoaShowDTO;
+import com.sistema.core.model.pessoa.dto.PessoaDTOChange;
+import com.sistema.core.model.pessoa.dto.PessoaDTOCreate;
+import com.sistema.core.model.pessoa.dto.PessoaDTOList;
+import com.sistema.core.model.pessoa.dto.PessoaDTOShow;
 
 @RestController
 @RequestMapping("/pessoa")
@@ -27,13 +27,13 @@ public class PessoaController {
 	private PessoaService service;
 
 	@GetMapping("/listar")
-	public List<PessoaListDTO> listar() {
+	public List<PessoaDTOList> listar() {
 
 		return service.listar();
 	}
 
 	@GetMapping("/buscar")
-	public PessoaShowDTO buscar(@RequestParam Long id) {
+	public PessoaDTOShow buscar(@RequestParam Long id) {
 		return service.buscarPorId(id);
 	}
 
@@ -43,13 +43,13 @@ public class PessoaController {
 	}
 
 	@PostMapping("/criar")
-	public PessoaShowDTO criar(@Valid @RequestBody PessoaCreateDTO dto) {
+	public PessoaDTOShow criar(@Valid @RequestBody PessoaDTOCreate dto) {
 
 		return service.criar(dto);
 	}
 
 	@PutMapping("/alterar")
-	public Pessoa alterar(@Valid @RequestBody PessoaChangeDTO dto) {
+	public Pessoa alterar(@Valid @RequestBody PessoaDTOChange dto) {
 
 		return service.alterar(dto);
 	}
@@ -60,50 +60,5 @@ public class PessoaController {
 		service.excluir(id);
 	}
 
-	@GetMapping("/safada")
-	public String safada(SafadaDTO dto) {
-
-		return dto.getNome();
-	}
-
 }
 
-class SafadaDTO {
-	private String nome;
-	private int busto;
-	private int cintura;
-	private int nivelBeleza;
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public int getBusto() {
-		return busto;
-	}
-
-	public void setBusto(int busto) {
-		this.busto = busto;
-	}
-
-	public int getCintura() {
-		return cintura;
-	}
-
-	public void setCintura(int cintura) {
-		this.cintura = cintura;
-	}
-
-	public int getNivelBeleza() {
-		return nivelBeleza;
-	}
-
-	public void setNivelBeleza(int nivelBeleza) {
-		this.nivelBeleza = nivelBeleza;
-	}
-
-}

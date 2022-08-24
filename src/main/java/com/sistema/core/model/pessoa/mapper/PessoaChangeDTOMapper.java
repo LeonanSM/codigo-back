@@ -1,20 +1,12 @@
 package com.sistema.core.model.pessoa.mapper;
 
-import java.util.List;
-
 import org.mapstruct.Mapper;
 
+import com.sistema.core.model.abstractions.BaseMapper;
 import com.sistema.core.model.pessoa.Pessoa;
-import com.sistema.core.model.pessoa.dto.PessoaChangeDTO;
+import com.sistema.core.model.pessoa.dto.PessoaDTOChange;
 
 @Mapper(componentModel = "spring")
-public interface PessoaChangeDTOMapper{
+public interface PessoaChangeDTOMapper extends BaseMapper<Pessoa, PessoaDTOChange>{
 
-	Pessoa toEntity(PessoaChangeDTO dto);
-
-	PessoaChangeDTO toDTO(Pessoa entity);
-	
-	List<Pessoa> toEntity(List<PessoaChangeDTO> dto);
-
-	List<PessoaChangeDTO> toDTO(List<Pessoa> entity);
 }

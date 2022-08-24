@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sistema.core.model.servico.dto.ServicoChangeDTO;
-import com.sistema.core.model.servico.dto.ServicoCreateDTO;
-import com.sistema.core.model.servico.dto.ServicoListDTO;
-import com.sistema.core.model.servico.dto.ServicoShowDTO;
+import com.sistema.core.model.servico.dto.ServicoDTOChange;
+import com.sistema.core.model.servico.dto.ServicoDTOCreate;
+import com.sistema.core.model.servico.dto.ServicoDTOList;
+import com.sistema.core.model.servico.dto.ServicoDTOShow;
 
 
 
@@ -31,24 +31,24 @@ public class ServicoController {
 	private ServicoService service;
 
 	@GetMapping("/listar")
-	public List<ServicoListDTO> listar() {
+	public List<ServicoDTOList> listar() {
 
 		return service.listar();
 	}
 
 	@GetMapping("/buscar")
-	public ServicoShowDTO buscar(@RequestParam Long id) {
+	public ServicoDTOShow buscar(@RequestParam Long id) {
 		return service.buscarPorId(id);
 	}
 
 	@PostMapping("/criar")
-	public ServicoShowDTO criar(@RequestBody ServicoCreateDTO dto) {
+	public ServicoDTOShow criar(@RequestBody ServicoDTOCreate dto) {
 
 		return service.criar(dto);
 	}
 
 	@PutMapping("/alterar")
-	public Servico alterar(@Valid @RequestBody ServicoChangeDTO dto) {
+	public Servico alterar(@Valid @RequestBody ServicoDTOChange dto) {
 
 		return service.alterar(dto);
 	}

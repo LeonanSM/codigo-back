@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.sistema.core.model.endereco.Endereco;
 
-public class PessoaCreateDTO {
+public class PessoaDTOList {
 
 	private Long id;
 	

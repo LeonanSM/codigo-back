@@ -10,6 +10,7 @@ public class DavosRun {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DavosRun.class, args);
+		System.out.println("Subiu Foguetinho! ->");
 	}
 
 }

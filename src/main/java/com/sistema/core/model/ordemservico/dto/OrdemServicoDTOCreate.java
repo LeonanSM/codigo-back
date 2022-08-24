@@ -6,15 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sistema.core.model.ordemservico.StatusOrdem;
-import com.sistema.core.model.ordemservicoitem.dto.OrdemServicoItemCreateDTO;
-import com.sistema.core.model.pessoa.Pessoa;
-import com.sistema.core.model.pessoa.dto.PessoaCreateDTO;
+import com.sistema.core.model.ordemservicoitem.dto.OrdemServicoItemDTOCreate;
+import com.sistema.core.model.pessoa.dto.PessoaDTOCreate;
 
 import lombok.Getter;
 import lombok.Setter;
 @Getter
 @Setter
-public class OrdemServicoCreateDTO {
+public class OrdemServicoDTOCreate {
 
 
     private String descricaoServico;
@@ -35,9 +34,9 @@ public class OrdemServicoCreateDTO {
 
     private StatusOrdem status;
 
-    private PessoaCreateDTO pessoa;
+    private PessoaDTOCreate pessoa;
 
-    private List<OrdemServicoItemCreateDTO> ordemServicoItens = new ArrayList<>();
+    private List<OrdemServicoItemDTOCreate> ordemServicoItens = new ArrayList<>();
 
 
 

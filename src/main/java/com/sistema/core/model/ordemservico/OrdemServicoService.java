@@ -8,10 +8,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sistema.core.model.ordemservico.dto.OrdemServicoChangeDTO;
-import com.sistema.core.model.ordemservico.dto.OrdemServicoCreateDTO;
-import com.sistema.core.model.ordemservico.dto.OrdemServicoListDTO;
-import com.sistema.core.model.ordemservico.dto.OrdemServicoShowDTO;
+import com.sistema.core.model.ordemservico.dto.OrdemServicoDTOChange;
+import com.sistema.core.model.ordemservico.dto.OrdemServicoDTOCreate;
+import com.sistema.core.model.ordemservico.dto.OrdemServicoDTOList;
+import com.sistema.core.model.ordemservico.dto.OrdemServicoDTOShow;
 import com.sistema.core.model.ordemservico.mapper.OrdemServicoDTOChangeMapper;
 import com.sistema.core.model.ordemservico.mapper.OrdemServicoDTOCreateMapper;
 import com.sistema.core.model.ordemservico.mapper.OrdemServicoDTOListMapper;
@@ -36,38 +36,40 @@ public class OrdemServicoService {
     @Autowired
     private OrdemServicoDTOChangeMapper dtoChangeMapper;
 
-    public List<OrdemServicoListDTO> listar() {
 
-        return dtoListMapper.toDTO(repository.findAll());
+    public List<OrdemServicoDTOList> listar() {
+
+
+        return dtoListMapper.toDto(repository.findAll());
 
     }
 
-    public OrdemServicoShowDTO buscarPorId(Long id) {
+    public OrdemServicoDTOShow buscarPorId(Long id) {
 
         Optional<OrdemServico> optional = repository.findById(id);
 
         if (!optional.isPresent()) {
             throw new RuntimeException("Ordem serviço inexistente!");
         }
-        return dtoShowMapper.toDTO(optional.get());
+        return dtoShowMapper.toDto(optional.get());
     }
 
-    public OrdemServicoShowDTO criar(OrdemServicoCreateDTO dto) {
+    public OrdemServicoDTOShow criar(OrdemServicoDTOCreate dto) {
 
         OrdemServico ordemServico = dtoCreateMapper.toEntity(dto);
         ordemServico = repository.save(ordemServico);
 
-        return dtoShowMapper.toDTO(ordemServico);
+        return dtoShowMapper.toDto(ordemServico);
 
     }
 
-    public OrdemServicoShowDTO alterar(OrdemServicoChangeDTO dto) {
+    public OrdemServicoDTOShow alterar(OrdemServicoDTOChange dto) {
 
         OrdemServico ordemServico = dtoChangeMapper.toEntity(dto);
 
         ordemServico = repository.save(ordemServico);
 
-        return dtoShowMapper.toDTO(ordemServico);
+        return dtoShowMapper.toDto(ordemServico);
     }
 
     public String excluir(Long id) {

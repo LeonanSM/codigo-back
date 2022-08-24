@@ -5,16 +5,16 @@ import java.util.List;
 import org.mapstruct.Mapper;
 
 import com.sistema.core.model.servico.Servico;
-import com.sistema.core.model.servico.dto.ServicoChangeDTO;
+import com.sistema.core.model.servico.dto.ServicoDTOChange;
 
 @Mapper(componentModel = "spring")
 public interface ServicoChangeDTOMapper {
 
-	Servico toEntity(ServicoChangeDTO dto);
+	Servico toEntity(ServicoDTOChange dto);
 
-	ServicoChangeDTO toDTO(Servico entity);
+	ServicoDTOChange toDTO(Servico entity);
 
-	List<Servico> toEntity(List<ServicoChangeDTO> dto);
+	List<Servico> toEntity(List<ServicoDTOChange> dto);
 	
-	List<ServicoChangeDTO> toDTO(List<Servico> entity);
+	List<ServicoDTOChange> toDTO(List<Servico> entity);
 }

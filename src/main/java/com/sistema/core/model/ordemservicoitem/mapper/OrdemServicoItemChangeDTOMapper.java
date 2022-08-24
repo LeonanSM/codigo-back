@@ -1,20 +1,12 @@
 package com.sistema.core.model.ordemservicoitem.mapper;
 
-import java.util.List;
-
 import org.mapstruct.Mapper;
 
+import com.sistema.core.model.abstractions.BaseMapper;
 import com.sistema.core.model.ordemservicoitem.OrdemServicoItem;
-import com.sistema.core.model.ordemservicoitem.dto.OrdemServicoItemChangeDTO;
+import com.sistema.core.model.ordemservicoitem.dto.OrdemServicoItemDTOChange;
 
 @Mapper(componentModel = "spring")
-public interface OrdemServicoItemChangeDTOMapper {
+public interface OrdemServicoItemChangeDTOMapper extends BaseMapper<OrdemServicoItem, OrdemServicoItemDTOChange> {
 
-	OrdemServicoItem toEntity(OrdemServicoItemChangeDTO dto);
-
-	OrdemServicoItemChangeDTO toDTO(OrdemServicoItem entity);
-	
-	List<OrdemServicoItem> toEntity(List<OrdemServicoItemChangeDTO> dto);
-
-	List<OrdemServicoItemChangeDTO> toDTO(List<OrdemServicoItem> entity);
 }

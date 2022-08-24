@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import javax.validation.constraints.NotBlank;
 
-public class ServicoChangeDTO {
+public class ServicoDTOShow {
 
 	private long id;
 

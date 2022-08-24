@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 import com.sistema.core.model.ordemservico.StatusOrdem;
 
-public class OrdemServicoChangeDTO {
+public class OrdemServicoDTOChange {
 
 	private String descricaoServico;
 

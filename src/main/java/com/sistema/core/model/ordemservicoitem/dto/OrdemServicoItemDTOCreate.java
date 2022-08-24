@@ -4,14 +4,14 @@ import java.math.BigDecimal;
 
 import javax.validation.constraints.NotNull;
 
-import com.sistema.core.model.servico.dto.ServicoCreateDTO;
+import com.sistema.core.model.servico.dto.ServicoDTOCreate;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class OrdemServicoItemCreateDTO {
+public class OrdemServicoItemDTOCreate {
 
     private long id;
 
@@ -30,7 +30,7 @@ public class OrdemServicoItemCreateDTO {
 
     private BigDecimal valorBruto;
 
-    private ServicoCreateDTO servico;
+    private ServicoDTOCreate servico;
     private Long servicoId;
 
 
