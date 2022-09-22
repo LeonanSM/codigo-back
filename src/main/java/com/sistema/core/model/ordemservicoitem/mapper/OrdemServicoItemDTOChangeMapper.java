@@ -4,10 +4,9 @@ import org.mapstruct.Mapper;
 
 import com.sistema.core.model.abstractions.BaseMapper;
 import com.sistema.core.model.ordemservicoitem.OrdemServicoItem;
-import com.sistema.core.model.ordemservicoitem.dto.OrdemServicoItemDTOShow;
+import com.sistema.core.model.ordemservicoitem.dto.OrdemServicoItemDTOChange;
 
 @Mapper(componentModel = "spring")
-public interface OrdemServicoItemShowDTOMapper extends BaseMapper<OrdemServicoItem, OrdemServicoItemDTOShow> {
+public interface OrdemServicoItemDTOChangeMapper extends BaseMapper<OrdemServicoItem, OrdemServicoItemDTOChange> {
 
-	
 }

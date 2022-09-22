@@ -7,7 +7,7 @@ import com.sistema.core.model.ordemservicoitem.OrdemServicoItem;
 import com.sistema.core.model.ordemservicoitem.dto.OrdemServicoItemDTOCreate;
 
 @Mapper(componentModel = "spring")
-public interface OrdemServicoItemCreateDTOMapper extends BaseMapper<OrdemServicoItem, OrdemServicoItemDTOCreate> {
+public interface OrdemServicoItemDTOCreateMapper extends BaseMapper<OrdemServicoItem, OrdemServicoItemDTOCreate> {
 
 
 }
