@@ -35,7 +35,7 @@ public class OrdemServicoDTOList {
 
 	private LocalDateTime fim;
 	
-	private List<OrdemServicoItem> ordemServicoItem = new ArrayList<OrdemServicoItem>();
+	
 
 	
 }
