@@ -1,6 +1,7 @@
 package com.sistema.core.model.ordemservicoitem.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
@@ -29,9 +30,12 @@ public class OrdemServicoItemDTOCreate {
     private BigDecimal valorDesconto;
 
     private BigDecimal valorBruto;
+    
+    private List<OrdemServicoItemDTOCreate> itens;
 
     private ServicoDTOCreate servico;
     private Long servicoId;
+    
 
 
 }
